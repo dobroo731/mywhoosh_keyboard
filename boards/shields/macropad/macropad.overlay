@@ -4,14 +4,6 @@
     nfct-pins-as-gpios;
 };
 
-&lfxo {
-    status = "disabled";
-};
-
-&lfrc {
-    status = "okay";
-};
-
 / {
     chosen {
         zmk,kscan = &kscan0;
