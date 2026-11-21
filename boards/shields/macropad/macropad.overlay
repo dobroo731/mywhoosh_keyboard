@@ -1,0 +1,46 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix-transform = &default_transform;
+    };
+
+    default_transform: keymap_transform_0 {
+        compatible = "zmk,matrix-transform";
+        columns = <18>;
+        rows = <1>;
+        map = <
+            RC(0,0)  RC(0,1)  RC(0,2)  RC(0,3)  RC(0,4)  RC(0,5)
+            RC(0,6)  RC(0,7)  RC(0,8)  RC(0,9)  RC(0,10) RC(0,11)
+            RC(0,12) RC(0,13) RC(0,14) RC(0,15) RC(0,16) RC(0,17)
+        >;
+    };
+
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-gpio-direct";
+        wakeup-source;
+        input-gpios
+            /* Левая сторона платы сверху вниз */
+            = <&gpio0  6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 1.  Пин 006 -> K */
+            , <&gpio0  8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 2.  Пин 008 -> I */
+            , <&gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 3.  Пин 017 -> A */
+            , <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 4.  Пин 020 -> D */
+            , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 5.  Пин 022 -> U */
+            , <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 6.  Пин 024 -> 1 */
+            , <&gpio1  0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 7.  Пин 100 -> 2 */
+            , <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 8.  Пин 011 -> 3 */
+            , <&gpio1  4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 9.  Пин 104 -> 4 */
+            , <&gpio1  6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 10. Пин 106 -> 5 */
+            /* Правая сторона платы сверху вниз */
+            , <&gpio0  9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 11. Пин 009 -> 6 */
+            , <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 12. Пин 010 -> 7 */
+            , <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 13. Пин 111 -> Громкость - */
+            , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 14. Пин 113 -> Громкость + */
+            , <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 15. Пин 115 -> Пред. трек */
+            , <&gpio0  2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 16. Пин 002 -> След. трек */
+            , <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 17. Пин 029 -> Пауза/Плей */
+            , <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* 18. Пин 031 -> Скриншот (Win+PrtScr) */
+            ;
+    };
+};
