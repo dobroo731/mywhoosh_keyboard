@@ -6,10 +6,9 @@
     combos {
         compatible = "zmk,combos";
 
-        // Одновременное нажатие кнопок 17 (Пауза) и 18 (Скриншот) -> Сброс Bluetooth для нового подключения
         combo_bt_clr {
             timeout-ms = <100>;
-            key-positions = <16 17>;
+            key-positions = <14 15>;
             bindings = <&bt BT_CLR>;
         };
     };
@@ -19,9 +18,10 @@
 
         default_layer {
             bindings = <
-                &kp K        &kp I        &kp A       &kp D        &kp U        &kp N1
-                &kp N2       &kp N3       &kp N4      &kp N5       &kp N6       &kp N7
-                &kp C_VOL_DN &kp C_VOL_UP &kp C_PREV  &kp C_NEXT   &kp C_PP     &kp LG(PSCRN)
+                &kp K        &kp I        &kp A       &kp D
+                &kp U        &kp N1       &kp N2      &kp N3
+                &kp N4       &kp N5       &kp C_VOL_DN &kp C_VOL_UP
+                &kp C_PREV   &kp C_NEXT   &kp C_PP     &kp LG(PSCRN)
             >;
         };
     };
